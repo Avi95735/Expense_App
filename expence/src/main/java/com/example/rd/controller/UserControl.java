@@ -1,12 +1,7 @@
 package com.example.rd.controller;
 
-import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,34 +12,32 @@ import com.example.rd.entity.UserProfile;
 
 @RestController
 @RequestMapping("/api/user")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "*")
 public class UserControl {
-      
-	@Autowired
-	 private final UserProfileService service;
-	@Autowired
-    private  RepoUser user;
 
-   
-	 public UserControl(UserProfileService service, RepoUser user) {
-	        this.service = service;
-	        this.user = user;
-	    }
+    private final UserProfileService service;
+    private final RepoUser user;
 
-    // get
+    public UserControl(UserProfileService service, RepoUser user) {
+        this.service = service;
+        this.user = user;
+    }
+
+    // GET ALL USERS
     @GetMapping("/getall")
     public List<UserProfile> getData() {
         return user.findAll();
     }
 
-    //  Add User
+    // ADD USER
     @PostMapping("/uadd")
     public UserProfile save(@RequestBody UserProfile s) {
         return user.save(s);
     }
 
+    // OPENING BALANCE
     @GetMapping("/opbal/{userId}")
-    public ResponseEntity<UserDTO> getOpeningBalance(@PathVariable("userId") int userId){
+    public ResponseEntity<UserDTO> getOpeningBalance(@PathVariable int userId) {
 
         UserDTO dto = service.getOpeningBalance(userId);
 
