@@ -12,7 +12,7 @@ import com.example.rd.entity.UserProfile;
 
 @RestController
 @RequestMapping("/api/user")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "https://fullstackex.netlify.app/")
 public class UserControl {
 
     private final UserProfileService service;
