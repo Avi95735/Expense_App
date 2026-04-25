@@ -22,7 +22,7 @@ export default function Login() {
       return;
     }
 
-    axios.get("http://localhost:8080/api/user/getall")
+    axios.get("https://expense-app-2-5b8w.onrender.com/api/user/getall")
       .then((res) => {
         const userData = res.data.find((u) =>
           u.mobile?.toString() === mo.trim()
@@ -59,7 +59,7 @@ export default function Login() {
     };
 
     axios
-      .post("http://localhost:8080/api/user/uadd", ex)
+      .post("https://expense-app-2-5b8w.onrender.com/api/user/uadd", ex)
       .then(() => {
         alert("Sign Up Successful ✅");
         setShowPopup(false);
