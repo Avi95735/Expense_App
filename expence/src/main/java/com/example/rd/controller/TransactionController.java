@@ -9,7 +9,7 @@ import com.example.rd.DTO.TransactionDTO;
 
 @RestController
 @RequestMapping("/api/transaction")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "https://fullstackex.netlify.app/")
 public class TransactionController {
 
     private final TransactionService service;
