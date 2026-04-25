@@ -26,7 +26,7 @@ export default function Dashboard() {
     if (!user?.id) return;
     try {
       const res = await axios.get(
-        `http://localhost:8080/api/user/opbal/${user.id}`
+        `https://expense-app-2-5b8w.onrender.com/api/user/opbal/${user.id}`
       );
       setBal(Number(res.data?.opbal || 0));
     } catch (err) {
@@ -38,7 +38,7 @@ export default function Dashboard() {
     if (!user?.id) return;
     try {
       const res = await axios.get(
-        `http://localhost:8080/api/transaction/${user.id}`
+        `https://expense-app-2-5b8w.onrender.com/api/transaction/${user.id}`
       );
       const transactions = res.data || [];
       setPass(transactions);
@@ -73,7 +73,7 @@ export default function Dashboard() {
     if (!user?.id) return;
     try {
       await axios.post(
-        `http://localhost:8080/api/transaction/credit/${user.id}`,
+        `https://expense-app-2-5b8w.onrender.com/api/transaction/credit/${user.id}`,
         { amount: Number(crd), date: dat, note: not }
       );
       alert("Credit Successful");
@@ -96,7 +96,7 @@ export default function Dashboard() {
     if (!user?.id) return;
     try {
       await axios.post(
-        `http://localhost:8080/api/transaction/debit/${user.id}`,
+        `https://expense-app-2-5b8w.onrender.com/api/transaction/debit/${user.id}`,
         { amount: Number(dbt), date: dt, note: noted }
       );
       alert("Debit Successful");
